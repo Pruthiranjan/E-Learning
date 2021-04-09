@@ -162,6 +162,7 @@ class Take_Course(models.Model):
 
 
 class Notes(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     date = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255, null=True)
     description = models.TextField(null=True)

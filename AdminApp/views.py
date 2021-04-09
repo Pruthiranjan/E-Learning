@@ -461,7 +461,7 @@ def Delete_doubt(request, id):
 
 def Note(request):
     if request.user.is_authenticated:
-        n = Notes.objects.all()
+        n = Notes.objects.filter(user_id=request.user.id)
         data1 = UserDetail.objects.get(pk=request.user)
         user = request.user.get_short_name()
         user1 = request.user.get_full_name()
@@ -477,7 +477,8 @@ def Add_note(request):
     if request.method == "POST":
         ntitle = request.POST["title"]
         ndescription = request.POST["message"]
-        Notes.objects.create(title=ntitle, description=ndescription)
+        Notes.objects.create(user=request.user, title=ntitle,
+                             description=ndescription)
         return redirect('note')
     return render(request, 'addnote.html', {'user': user, 'user1': user1, 'data1': data1})
 

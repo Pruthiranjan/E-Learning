@@ -1,0 +1,75 @@
+{% extends 'dashboard.html' %} {% load static %} {% block link %}
+<link rel="stylesheet" href="{% static 'AdminApp/css/course.css' %}"> {% endblock link %} {% block title %}
+<title>Student | student-course</title>
+{% endblock title %} {% block content %}
+<div class="dashboard-content-one">
+    <div class="container">
+        <div style="margin-top: 0;">
+            {% if request.user.userdetail.usertype == 'teacher' %}
+            <a href="newsection" class="newsec"><i class="fas fa-plus text-success"></i> Add New Section</a> {% endif %}
+            <div class="container">
+                <div class="accordion" id="accordionExample">
+                    {% for section in cs %}
+                    <div class="card">
+                        <div class="card-header" id="heading{{section.id}}">
+                            <h2 class="mb-0">
+                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{section.id}}" aria-expanded="true" aria-controls="collapse{{section.id}}"><span class="text-danger font-weight-bold h4">Section</span><span class="text-dark font-weight-bold h4">-{{section.no_of_section}}</span>
+                                </button> {% if request.user.userdetail.usertype == 'teacher' %}
+                                <a href="/del_section/{{section.id}}" class="btnadddel"><i class="fas fa-trash-alt text-danger"></i></a>
+                                <a href="" data-toggle="modal" data-target="#addvideo{{section.id}}" style="margin-left: 10px;"><i class="far fa-file-video text-success"></i>
+                                </a> {% endif %}
+                            </h2>
+                        </div>
+                        <div class="modal fade" id="addvideo{{section.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalCenterTitle">Add Video</h5>
+                                        <button type="button" class="close text-danger" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                  </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" enctype="multipart/form-data">
+                                            <label for="ctitle">Course Title </label>
+                                            <input type="text" name="ctitle" id="ctitle" class="form-control">
+                                            <br>
+                                            <label for="section">Section</label>
+                                            <input type="text" name="section" value="{{section.id}}" class="form-control">
+                                            <input type="file" name="Video" class="mt-3">
+                                            <input type="submit" value="Upload" class="btn btn-success pull-right mt-3">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="collapse{{section.id}}" class="collapse show" aria-labelledby="heading{{section.id}}" data-parent="#accordionExample">
+                            <div class="card-body">
+                                {% for video in cv %} {% if section.id == video.section_id %}
+                                <a href="#" class="text-dark coursetitle" data-toggle="modal" data-target="#cv{{video.id}}"><span class="text-danger">{{video.id}}. </span>{{video.ctitle}}</a><br>
+                                <!-- Modal -->
+                                <div class="modal fade" id="cv{{video.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <p class="modal-title h6" id="exampleModalLongTitle">{{video.ctitle}}</p>
+                                                <button type="button" onclick="Reload()" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <video width="460" height="300" controls>
+                                                    <source src="{{video.cvideo.url}}" type="video/mp4">
+                                                  </video>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endif %} {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

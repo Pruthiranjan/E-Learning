@@ -1,0 +1,418 @@
+<!doctype html>
+<html lang="en">
+
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" /> {% load static %}
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> {% block title %} {% endblock title %}
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'AdminApp/img/favicon.png' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/normalize.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/main.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/fonts/flaticon.css' %}">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/animate.min.css' %}">
+    <!-- Data Table CSS -->
+    <link rel="stylesheet" href="{% static 'AdminApp/css/jquery.dataTables.min.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/style.css' %}"> {% block link %} {% endblock link %}
+    <style>
+        .error {
+            color: red;
+            font-size: 10px;
+        }
+        
+        .avatar-wrapper {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin: 50px auto;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 1px 1px 15px -5px black;
+            transition: all 0.3s ease;
+        }
+        
+        .avatar-wrapper:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+        }
+        
+        .avatar-wrapper:hover .profile-pic {
+            opacity: 0.5;
+        }
+        
+        .avatar-wrapper .profile-pic {
+            height: 100%;
+            width: 100%;
+            transition: all 0.3s ease;
+        }
+        
+        .avatar-wrapper .profile-pic:after {
+            font-family: FontAwesome;
+            content: "";
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            font-size: 190px;
+            background: #ecf0f1;
+            color: #34495e;
+            text-align: center;
+        }
+        
+        .avatar-wrapper .upload-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+        }
+        
+        .avatar-wrapper .upload-button .fa-arrow-circle-up {
+            position: absolute;
+            font-size: 234px;
+            top: -17px;
+            left: 0;
+            text-align: center;
+            opacity: 0;
+            transition: all 0.3s ease;
+            color: #34495e;
+        }
+        
+        .avatar-wrapper .upload-button:hover .fa-arrow-circle-up {
+            opacity: 0.9;
+        }
+        
+        #doubbt_btn {
+            margin-left: 90%;
+            width: 90px;
+            height: 40px;
+        }
+        
+        .accordion {
+            margin-top: 20px;
+        }
+        
+        #addnote {
+            margin-left: 80%;
+            width: 90px;
+            height: 40px;
+        }
+        
+        #userdetail {
+            padding-left: 250px;
+            padding-bottom: 70px;
+        }
+        
+        #profileupdatebtn {
+            padding-top: 20px;
+        }
+        
+        #changepassword {
+            padding-left: 300px;
+            padding-bottom: 150px;
+        }
+        
+        #profile {
+            padding-left: 250px;
+            padding-bottom: 70px;
+        }
+        
+        #techerrequest {
+            height: 540px;
+            width: 580px;
+            margin-left: 250px;
+        }
+        
+        .teacherrqtform {
+            margin-left: 300px;
+        }
+        
+        .newsec {
+            margin-left: 85%;
+        }
+        
+        .btnadddel {
+            margin-left: 80%;
+        }
+        
+        .blogpost {
+            padding: 10px;
+            margin-left: 90%;
+            width: 90px;
+            margin-top: -50px;
+        }
+        
+        @media screen and (max-width: 400px) {
+            #doubbt_btn {
+                margin-left: 70%;
+                font-size: 15px;
+            }
+            .accordion {
+                margin-top: 20px;
+            }
+            #addnote {
+                margin-left: 40%;
+                width: 90px;
+                height: 40px;
+            }
+            #userdetail {
+                padding-left: 0;
+                padding-bottom: 0;
+            }
+            #changepassword {
+                padding-left: 0;
+                padding-bottom: 0;
+            }
+            #profile {
+                padding-left: 0;
+                padding-bottom: 0;
+            }
+            #techerrequest {
+                height: 0;
+                width: 0;
+                margin-left: 0;
+            }
+            .teacherrqtform {
+                margin-left: 0;
+            }
+            .newsec {
+                margin-left: 46%;
+            }
+            .btnadddel {
+                margin-left: 25%;
+            }
+            .coursetitle {
+                font-size: 10px;
+                font-weight: bold;
+            }
+            .blogpost {
+                padding: 10px;
+                margin-left: 70%;
+                width: 90px;
+                margin-top: -50px;
+            }
+        }
+    </style>
+    {% block style %}{% endblock style %}
+    <script src="{% static 'AdminApp/js/modernizr-3.6.0.min.js' %}"></script>
+</head>
+
+<body>
+    <div id="wrapper" class="wrapper bg-ash">
+        <!--///////////Header Start////////////////-->
+        <div class="navbar navbar-expand-md header-menu-one bg-light">
+            <div class="nav-bar-header-one">
+                <div class="header-logo">
+                    <a href="#">
+                        <img src="{% static 'AdminApp/img/favicon.png' %}" alt="logo">E-LEARNING
+                    </a>
+                </div>
+                <div class="toggle-button sidebar-toggle">
+                    <button type="button" class="item-link">
+                        <span class="btn-icon-wrap">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+            <div class="d-md-none mobile-nav-bar">
+                <button class="navbar-toggler pulse-animation" type="button" data-toggle="collapse" data-target="#mobile-navbar" aria-expanded="false">
+                    <i class="far fa-arrow-alt-circle-down"></i>
+                </button>
+                <button type="button" class="navbar-toggler sidebar-toggle-mobile">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            <div class="header-main-menu collapse navbar-collapse" id="mobile-navbar">
+                <ul class="navbar-nav">
+                    <li class="navbar-item header-search-bar">
+                        <div class="input-group stylish-input-group">
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="navbar-item dropdown header-admin">
+                        <a class="navbar-nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-expanded="false">
+                            <div class="admin-title">
+                                <h5 class="item-title">Hii {{user}}</h5>
+                            </div>
+                            <div class="admin-img">
+                                <img src="{% if data1.Profile_img %}{{data1.Profile_img.url}}{% else %}{% static 'AdminApp/img/defaultigm.png' %}{% endif %}" style="height: 40px; width: 40px;" alt="Not found">
+                            </div>
+                        </a>
+                        <div class="dropdown-menu dropdown-menu-right">
+                            <div class="item-header">
+                                <h6 class="item-title">{{user1}}</h6>
+                            </div>
+                            <div class="item-content">
+                                <ul class="settings-list">
+                                    <li><a href="/user_profile/"><i class="flaticon-user"></i>My Profile</a></li>
+                                    <li><a href="/change_password/"><i class="flaticon-chat-comment-oval-speech-bubble-with-text-lines"></i>Change Password</a></li>
+                                    <li><a href="/profile_pic/"><i class="fas fa-images"></i>Profile Picture</a></li>
+                                    {% if request.user.userdetail.usertype == 'student' %}
+                                    <li><a href="/teacher_request/"><i class="fas fa-paper-plane"></i>Become A Teacher</a></li>
+                                    {% endif %}
+                                    <li><a href="/logout/"><i class="flaticon-turn-off"></i>Log Out</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="dashboard-page-one">
+            <!--//////////////Sidebar Start//////////////-->
+            <div class="sidebar-main sidebar-menu-one sidebar-expand-md sidebar-color">
+                <div class="mobile-sidebar-header d-md-none">
+                    <div class="header-logo">
+                        <a href="#"><img src="{% static 'AdminApp/img/favicon.png' %}" alt="logo">E-LEARNING</a>
+                    </div>
+                </div>
+                <div class="sidebar-menu-content">
+                    <ul class="nav nav-sidebar-menu sidebar-toggle-view">
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="flaticon-dashboard"></i><span>Dashboard</span></a>
+                            <ul class="nav sub-group-menu">
+                                {% if request.user.is_superuser %}
+                                <li class="nav-item">
+                                    <a href="/admin_dashboard/" class="nav-link"><i class="fas fa-angle-right"></i>Admin</a>
+                                </li>
+                                {% endif %} {% if request.user.userdetail.usertype == 'student' or request.user.is_superuser %}
+                                <li class="nav-item">
+                                    <a href="/student_dashboard/" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Students</a>
+                                </li>
+                        </li>
+                        {% endif %} {% if request.user.userdetail.usertype == 'teacher' or request.user.is_superuser %}
+                        <li class="nav-item">
+                            <a href="/teacher_dashboard/" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Teachers</a>
+                        </li>
+                        {% endif %}
+                        </ul>
+                        </li>
+                        {% if request.user.userdetail.usertype == 'student' %}
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/student_course/" class="nav-link"><i class="fas fa-book-open"></i><span>My Courses</span></a>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/doubt_show/" class="nav-link"><i class="far fa-paper-plane"></i><span>Doubt Post</span></a>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/note/" class="nav-link"><i class="fas fa-pencil-alt"></i><span>Note</span></a>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/blogshow/" class="nav-link"><i class="fas fa-blog"></i><span>Blogs</span></a>
+                        </li>
+                        {% endif %} {% if request.user.is_superuser %}
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/techer_rqst/" class="nav-link"><i class="fas fa-tasks"></i><span>Manage Request</span></a>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/blogpost/" class="nav-link"><i class="fas fa-blog"></i><span>Blog Posting</span></a>
+                        </li>
+                        {% endif %} {% if request.user.userdetail.usertype == 'teacher' %}
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="fas fa-book-medical"></i><span>Add Course</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="/addsub/" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>Add</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="#" class="nav-link"><i class="fas fa-tasks"></i><span>Manage Course</span></a>
+                            <ul class="nav sub-group-menu">
+                                <li class="nav-item">
+                                    <a href="/manage_view/" class="nav-link"><i
+                                            class="fas fa-angle-right"></i>View</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item sidebar-nav-item">
+                            <a href="/blogpost/" class="nav-link"><i class="fas fa-blog"></i><span>Blog Posting</span></a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+            <!--///////////////Sidebar End///////////////-->
+            {% block content %}{% endblock content%}
+            <!--//////////////////Footer Start/////////////-->
+            <footer class="footer-wrap-layout1">
+                <div class="copyright text-center">© Copyrights <a href="#">betacentauri</a> 2021. All rights reserved. Designed by <a href="#">BETA CENTAURI</a></div>
+            </footer>
+            <!--/////////////Footer End/////////////-->
+        </div>
+    </div>
+    </div>
+    <script src="{% static 'AdminApp/js/jquery-3.3.1.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/plugins.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/popper.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/jquery.scrollUp.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/main.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/jquery.counterup.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/moment.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/jquery.waypoints.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/fullcalendar.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/validation.js' %}"></script>
+    <script src="{% static 'AdminApp/js/additional-methods.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/Chart.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/jquery.dataTables.min.js' %}"></script>
+    <script>
+        $(document).ready(function() {
+            var readURL = function(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function(e) {
+                        $(".profile-pic").attr("src", e.target.result);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                    $("#submit").trigger('click');
+                }
+            };
+            $(".file-upload").on("change", function() {
+                readURL(this);
+            });
+            $(".upload-button").on("click", function() {
+                $(".file-upload").click();
+            });
+        });
+        $(document).ready(function() {
+            $('#data').DataTable();
+        });
+
+        function Reload() {
+            location.reload();
+        }
+    </script>
+
+</body>
+
+</html>

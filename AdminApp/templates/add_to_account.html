@@ -1,0 +1,105 @@
+{% extends 'dashboard.html' %} {% load static %} {% block link %}
+<link rel="stylesheet" href="{% static 'AdminApp/css/course.css' %}"> {% endblock link %} {% block title %}
+<title>Student | Dashboard</title>
+{% endblock title %} {% block content %}
+<div class="dashboard-content-one">
+    <div class="breadcrumbs-area">
+        <h3>Student Dashboard</h3>
+        <ul>
+            <li>
+                <a href="/student_dashboard/">Home</a>
+            </li>
+            <li>Students</li>
+        </ul>
+        {% if messages %} {% for message in messages %}
+        <div class="bg-{{message.tags}} text-center"><span {% if message.tags %} class="text-dark" {% endif %}>{{message}}</span>
+        </div>{% endfor %} {% endif %}
+    </div>
+    <!--///////////card start///////////////-->
+    <div class="row gutters-20">
+        <div class="col-xl-4 col-sm-6 col-12">
+            <div class="dashboard-summery-one mg-b-20">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="item-icon bg-light-green ">
+                            <i class="flaticon-classmates text-green"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="item-content">
+                            <div class="item-title">Total Couse</div>
+                            <div class="item-number"><span class="counter" data-num="100">100</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 col-12">
+            <div class="dashboard-summery-one mg-b-20">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="item-icon bg-light-blue">
+                            <i class="flaticon-multiple-users-silhouette text-blue"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="item-content">
+                            <div class="item-title">Completed Course</div>
+                            <div class="item-number"><span class="counter" data-num="10">6</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-4 col-sm-6 col-12">
+            <div class="dashboard-summery-one mg-b-20">
+                <div class="row align-items-center">
+                    <div class="col-6">
+                        <div class="item-icon bg-light-red">
+                            <i class="flaticon-money text-red"></i>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="item-content">
+                            <div class="item-title">In Progress Course</div>
+                            <div class="item-number"><span class="counter" data-num="10">4</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--///////////////////card end///////////////////-->
+    <section class="popular-course-area section-gap">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="title text-center">
+                    <h1 class="mb-10">Popular Courses we offer</h1>
+                    <p>There is a moment in the life of any aspiring.</p>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div id="fh5co-course">
+                <div class="container">
+                    <div class="row">
+                        {% for course in courses %}
+                        <div class="col-md-6 animate-box">
+                            <div class="course">
+                                <a href="#" class="course-img  border border-info rounded" style="background-image: url({{course.cimage.url}});background-size: cover;">
+                                </a>
+                                <div class="desc">
+                                    <h3><a href="#">{{course.cname}}</a></h3>
+                                    <p style="font-size: 10px;">{{course.cabout}}</p>
+                                    <br><br>
+                                    <span><a href="/add_to_account/{{course.id}}" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    {% endblock content %}

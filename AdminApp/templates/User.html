@@ -1,0 +1,27 @@
+{% extends 'baselogin.html' %}{% load static %} {% block title %}
+<title>Dashboard | Login</title>
+{% endblock title %}{% block content %}
+<!--/////////////Login Page Start///////////////-->
+<div class="login-page-wrap" style="background-image: url('/static/AdminApp/img/figure/login-bg.jpg');">
+    <div class="login-page-content">
+        <div class="login-box">
+            <div class="item-logo">
+                <a href="/"><img src="{% static 'AdminApp/img/favicon.png' %}" alt="logo"><b>E-LEARNING</b></a>
+            </div>
+            <h3 class="text-center text-info">Forgot Password</h3>
+            <form action="/verifyuser/" method="POST" class="login-form">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>Enter your Email</label>
+                    <input type="text" placeholder="Enter the email" name="email" class="form-control" required>
+                    <i class="far fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <center><button type="submit" class="login-btn" style="width: 60%; padding: 5px;">Send OTP</button></center>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--///////////Login Page End////////////////-->
+{% endblock content %}

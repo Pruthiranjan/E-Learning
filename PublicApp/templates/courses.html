@@ -1,0 +1,92 @@
+{% extends 'base.html' %}{% load static %}{% block link %}
+<link rel="stylesheet" href="{% static 'PublicApp/css/style.css' %}"> {% endblock link %} {% block content %}
+
+<!-- start banner Area -->
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white courses">
+                    Popular Courses
+                </h1>
+                <p class="text-white link-nav"><a href="/">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="/courses"> Popular Courses</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+<!-- Start popular-courses Area -->
+<div class="container">
+    <div id="fh5co-course">
+        <div class="container">
+            <div class="row">
+                {% for course in courses %}
+                <div class="col-md-6 animate-box">
+                    <div class="course">
+                        <a href="#" class="course-img  border border-info rounded" style="background-image: url({{course.cimage.url}});background-size: 300px; ">
+                        </a>
+                        <div class="desc">
+                            <h3><a href="#">{{course.cname}}</a></h3>
+                            <p>{{course.cabout}}</p>
+                            <br><br>
+                            <span><a href="/login/" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End popular-courses Area -->
+
+<!-- Start search-course Area -->
+<section class="search-course-area relative">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row justify-content-between align-items-center">
+            <div class="col-lg-6 col-md-6 search-course-left">
+                <h1 class="text-white">
+                    Get reduced fee <br> during this pandemic!
+                </h1>
+                <div class="row details-content">
+                    <div class="col single-detials">
+                        <span class="lnr lnr-graduation-hat"></span>
+                        <a href="#">
+                            <h4>Expert Instructors</h4>
+                        </a>
+                    </div>
+                    <div class="col single-detials">
+                        <span class="lnr lnr-license"></span>
+                        <a href="#">
+                            <h4>Certification</h4>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 search-course-right section-gap">
+                <form class="form-wrap" action="#">
+                    <h4 class="text-white pb-20 text-center mb-30">Search for Available Course</h4>
+                    <input type="text" class="form-control" name="name" placeholder="Your Name" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Name'">
+                    <input type="phone" class="form-control" name="phone" placeholder="Your Phone Number" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Phone Number'">
+                    <input type="email" class="form-control" name="email" placeholder="Your Email Address" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address'">
+                    <div class="form-select" id="service-select">
+                        <select>
+										<option datd-display="">Choose Course</option>
+										<option value="1">Python</option>
+										<option value="2">.net</option>
+										<option value="3">Java</option>
+										<option value="4">Web Development</option>
+									</select>
+                    </div>
+                    <button class="primary-btn text-uppercase">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section><br>
+<!-- End search-course Area -->
+
+{% endblock content %}

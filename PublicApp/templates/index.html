@@ -1,0 +1,149 @@
+{% extends 'base.html' %}{% load static %}{% block link %}
+<link rel="stylesheet" href="{% static 'PublicApp/css/style.css' %}"> {% endblock link %} {% block content %}
+<!------courses--------->
+<!-- start banner Area -->
+<section class="banner-area relative" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row fullscreen d-flex align-items-center justify-content-between">
+            <div class="banner-content col-lg-9 col-md-12">
+                <h1 class="text-uppercase">
+                    We Ensure better education for a better world
+                </h1>
+                <a href="/signup/" class="primary-btn text-uppercase">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+<!-- Start feature Area -->
+<section class="course-details-area pt-10">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 left-contents">
+                <div class="jq-tab-wrapper" id="horizontalTab">
+                    <div class="jq-tab-menu">
+                        <div class="jq-tab-title active" data-tab="1">Python</div>
+                        <div class="jq-tab-title" data-tab="2">.Net</div>
+                        <div class="jq-tab-title" data-tab="3">Java</div>
+                        <div class="jq-tab-title" data-tab="4">Web Development</div>
+
+                    </div>
+                    <div class="jq-tab-content-wrapper">
+                        <div class="jq-tab-content active" data-tab="1">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <strong> Python </strong>is an interpreted, high-level and general-purpose programming language. Python's design philosophy emphasizes code readability with its notable use of significant whitespace. Its language constructs
+                                    and object-oriented approach aim to help programmers write clear, logical code for small and large-scale projects.<br>Python is dynamically typed and garbage-collected. It supports multiple programming paradigms.
+                                    <br></div>
+                                <div class="col-md-2">
+                                    <img class="img-circle" src="{% static 'PublicApp/img/tw1.jpg' %}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jq-tab-content" data-tab="2">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <strong>.NET</strong> Framework (pronounced as "dot net") is a deprecated (in favour of .NET Core) software framework developed by Microsoft that runs primarily on Microsoft Windows. It includes a large class library
+                                    called Framework Class Library (FCL) and provides language interoperability (each language can use code written in other languages) across several programming languages.
+                                    <br></div>
+                                <div class="col-md-2">
+                                    <img class="img-circle" src="{% static 'PublicApp/img/tw2.jpg' %}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jq-tab-content" data-tab="3">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <strong>Java</strong> is a class-based, object-oriented programming language that is designed to have as few implementation dependencies as possible. It is a general-purpose programming language intended to let application
+                                    developers write
+                                    <br></div>
+                                <div class="col-md-2">
+                                    <img class="img-circle" src="{% static 'PublicApp/img/tw3.jpg' %}">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="jq-tab-content comment-wrap" data-tab="4">
+                            <div class="row">
+                                <div class="col-md-10">
+                                    <strong>Web development</strong> is the work involved in developing a Web site for the Internet or an intranet. Web development can range from developing a simple single static page of plain text to complex Web-based
+                                    Internet applications, electronic businesses, and social network services.
+                                    <br></div>
+                                <div class="col-md-2">
+                                    <img class="img-circle" src="{% static 'PublicApp/img/tw4.jpg' %}">
+
+                                </div>
+                            </div>
+                        </div>
+
+
+</section>
+<!-- End course-details Area -->
+
+
+<!-- Start popular-course Area -->
+<section class="popular-course-area section-gap">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="title text-center">
+                <h1 class="mb-10">Popular Courses we offer</h1>
+                <p>There is a moment in the life of any aspiring.</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div id="fh5co-course">
+            <div class="container">
+                <div class="row">
+                    {% for course in courses %}
+                    <div class="col-md-6 animate-box">
+                        <div class="course">
+                            <a href="#" class="course-img  border border-info rounded" style="background-image: url({{course.cimage.url}});background-size: 300px; ">
+                            </a>
+                            <div class="desc">
+                                <h3><a href="#">{{course.cname}}</a></h3>
+                                <p>{{course.cabout}}</p>
+                                <br><br>
+                                <span><a href="/login/" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End popular-course Area -->
+
+
+
+
+
+<!-- Start upcoming-event Area -->
+
+
+
+<!-- Start cta-one Area -->
+<section class="cta-one-area relative section-gap" id="target">
+    <div class="container">
+        <div class="overlay overlay-bg"></div>
+        <div class="row justify-content-center">
+            <div class="wrap">
+                <h1 class="text-white">Become an instructor</h1>
+                <p>
+                    There is a moment in the life of any aspiring astronomer that it is time to buy that first telescope. It’s exciting to think about setting up your own viewing station whether that is on the deck.
+                </p>
+                <a class="primary-btn wh" href="/signup/">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section><br>
+<!-- End cta-one Area -->
+
+<!-- Start blog Area -->
+{% endblock content %}

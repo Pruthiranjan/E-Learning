@@ -1,0 +1,39 @@
+{% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Student | student-course</title>
+{% endblock title %} {% block style %} {% endblock style %}{% block content %}
+<div class="dashboard-content-one">
+    <div class="breadcrumbs-area">
+        <h3>Student Dashboard</h3>
+        <ul>
+            <li>
+                <a href="/student_dashboard/">Home</a>
+            </li>
+            <li>Students</li>
+        </ul>
+    </div>
+    <!--///////////notifcations start////////////-->
+    <div class="col-lg-12 col-8-xxxl col-xl-12" style="height: 330px;">
+        <div class="card dashboard-card-six">
+            <div class="card-body">
+                <div class="heading-layout1 mg-b-17">
+                    <div class="item-title">
+                        <h3>Notes</h3>
+                    </div>
+                    <a href="/add_note/" class="btn font-weight-bold" style="border-radius: 20px; background-color: rgb(250, 6, 209);">Add Note</a>
+                </div>
+                <div class="notice-box-wrap">
+                    {% for x in n %}
+                    <div class="notice-list">
+                        <div class="post-date bg-skyblue">{{x.date}}</div>
+                        <h6 class="notice-title"><a href="#">{{x.description}}</a></h6>
+                        <div class="entry-meta">{{x.title}}</div>
+                        <a href="/edit_note/{{x.id}}/" class="btn btn-warning btn-lg font-weight-bold" style="border-radius: 20px;">&nbsp;&nbsp;Edit&nbsp;&nbsp;</a>
+                        <a href="/delete_note/{{x.id}}/" class="btn btn-danger btn-lg font-weight-bold" style="border-radius: 20px;">Delete</a>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--///////////notifcations end////////////-->
+    {% endblock content %}

@@ -1,0 +1,52 @@
+{% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Student | ADD DOUBT</title>
+{% endblock title %} {% block style %}
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>{% endblock style %}{% block content %}
+            <!--///////////////Sidebar End///////////////-->
+            <div class="dashboard-content-one">
+
+                <div class="breadcrumbs-area">
+                    <h3>DOUBT POST</h3>
+                    <ul>
+                        <li>
+                            <a href="/student_dashboard/">Home</a>
+                        </li>
+                        <li>Students</li>
+                    </ul>
+                </div>
+
+                <!--///////////notifcations start////////////-->
+                <div class="col-lg-12 col-8-xxxl col-xl-12" style="margin-left: 180px;">
+                    <div class="card dashboard-card-six">
+                        <div class="card-body">
+                            <div class="heading-layout1 mg-b-17">
+                                <div class="item-title">
+                                    <h3>Doubts</h3>
+                                </div>
+                                
+                            </div>
+                            <div class="notice-box-wrap">
+                                {% for i in blog %}
+                                <div class="notice-list">
+                                    <div class="post-date bg-skyblue">{{i.updated_at}}</div>
+                                    <h6 class="notice-title">{{i.title}}</h6>
+                                    <h6 class="notice-title">{{i.message}}</h6>
+                                    
+                                    <div class="entry-meta">
+                                        <img class="profile-pic" src="{% if i.image %}{{i.image.url}}{% endif %}" alt="Not Found"/>
+                                    </div>
+                                    <div class="entry-meta"> {{i.post_user}} / <span>5 min ago</span>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                {% endblock content %}

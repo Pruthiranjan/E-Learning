@@ -1,0 +1,27 @@
+{% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Student | Student Post</title>
+{% endblock title %} {% block style %}
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>{% endblock style %}{% block content %}
+<!--///////////////Sidebar End///////////////-->
+<div class="dashboard-content-one">
+    <div class="breadcrumbs-area">
+        <h3>Add Notes</h3>
+    </div>
+    <form action='/edit_note/{{n.id}}/' method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">TITLE</label>
+            <input type="text" placeholder="Enter Title" name="title" class="form-control border border-dark" value={{n.title}}>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">NOTES</label>
+            <textarea class="form-control border border-dark" name="message" style="height: 40vh;" id="exampleFormControlTextarea1" rows="3">{{n.description}}</textarea>
+        </div>
+        <input type='submit' class="btn btn-primary text-white" id="doubbt_btn" value='SAVE'>
+    </form>
+    <!--//////////////////Footer Start/////////////-->
+    {% endblock content %}

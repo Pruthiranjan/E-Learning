@@ -1,0 +1,20 @@
+{% extends 'dashboard.html' %} {% load static %}{% block title %}
+<title>User | Profile</title>
+{% endblock title %} {% block style %}
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>{% endblock style %} {% block content %}
+
+<div class="dashboard-page-one">
+    <form class="form-group pt-5" method="POST" id="profile" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="avatar-wrapper" style="width: 200px; height: 200px; margin-top: 10px; margin-bottom: 10px;">
+            <img class="profile-pic" src="{% if data1.Profile_img %}{{data1.Profile_img.url}}{% else %}{% static 'AdminApp/img/defaultigm.png' %}{% endif %}" />
+            <div class="upload-button">
+                <input type="submit" hidden>
+            </div>
+            <input class="file-upload" type="file" name="profilepic" accept="image/*" hidden />
+        </div>
+        <input type="submit" hidden id="submit"><br><br><br><br><br> {% endblock content %}

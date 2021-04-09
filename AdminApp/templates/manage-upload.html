@@ -1,0 +1,17 @@
+ {% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Admin | Dashboard</title>
+{% endblock title %} {% block content %}
+<!--/////////////////video start////////////-->
+<div class="dashboard-content-one">
+    <div class="dashboard-content-one">
+        <div class="breadcrumbs-area">
+            <h3>Upload Content</h3>
+        </div>
+        <input type="file" id="myFile" name="filename2"><br>
+        <div class="embed-responsive embed-responsive-16by9">
+            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0"></iframe>
+        </div>
+        <div class="mt-3">
+            <center><button type="submit" class="btn btn-primary" style="padding-right: 20px; padding-left: 20px; height:30px;">Submit</button></center>
+        </div>
+        {% endblock content %}

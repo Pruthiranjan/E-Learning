@@ -1,0 +1,21 @@
+ {% extends 'dashboard.html' %} {% load static %} {% block content %}
+
+<div class="dashboard-page-one">
+    <div class="dashboard-content-one">
+        <div class="breadcrumbs-area">
+            <h3>Blog Posting</h3>
+        </div>
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="title">TITLE</label>
+                <input type="text" name="title" id="title" placeholder="Post Title" class="form-control border border-dark">
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">MESSAGE</label>
+                <textarea class="form-control border border-dark" id="exampleFormControlTextarea1" name="message" style="height: 30vh;"></textarea>
+            </div>
+            <input type="file" id="myFile" name="filename2" required><br>
+            <input type="submit" value="POST" class="btn btn-success text-white blogpost">
+        </form>
+        {% endblock content %}

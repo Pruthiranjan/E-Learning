@@ -1,0 +1,28 @@
+{% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Student | student-course</title>
+{% endblock title %} {% block content %}
+<div class="dashboard-content-one">
+
+    <div class="breadcrumbs-area">
+        <h3>Student Dashboard</h3>
+        <ul>
+            <li>
+                <a href="/student_dashboard/">Home</a>
+            </li>
+            <li>Download Certificate</li>
+        </ul>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <form action="" class="login-form" style="height: 334px;">
+                <div class="form-group">
+                    <label>Enter Your Name</label>
+                    <input type="text" placeholder="Enter Your Name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-btn btn-info">Download Certificate</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endblock content %}

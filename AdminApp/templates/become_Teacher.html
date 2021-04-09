@@ -1,0 +1,63 @@
+{% extends 'dashboard.html' %} {% load static %}{% block title %}
+<title>User | Profile</title>
+{% endblock title %} {% block content %}
+
+<div class="dashboard-page-one">
+    <div class="col-lg-12 col-8-xxxl col-xl-12">
+        <div class="card dashboard-card-six">
+            <div class="card-body techerrequest">
+                <div class="heading-layout1 mg-b-17">
+                    <div class="item-title teacherrqtform">
+                        <h3>Teacher Request Form</h3>
+                    </div>
+                </div>
+                <div class="notice-box-wrap">
+                    <div class="notice-list">
+                        <div class="post-date">
+                            {% if request.user.userdetail.status == 'notsent' %}
+                            <form class="form-group pt-2 text-dark" method="POST" enctype="multipart/form-data">
+                                {% csrf_token %}
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <label>Skills</label>
+                                        <input type="text" name="skills" class="form-control" style="border:1px solid  rgb(189, 199, 189);" required>
+                                        <label>Graduation Certificate</label>
+                                        <input type="file" name="gcertificate" class="form-control" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                                        text/plain, application/pdf" style="border:1px solid  rgb(189, 199, 189);" required>
+                                        <label>+2 Certificate</label>
+                                        <input type="file" class="form-control" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                                        text/plain, application/pdf" name="twocertificate" style="border:1px solid  rgb(189, 199, 189);" required>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <label>10th Certificate</label>
+                                        <input type="file" name="tencertificate" class="form-control" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                                        text/plain, application/pdf" style="border:1px solid rgb(189, 199, 189);" required>
+                                        <label>Resume</label>
+                                        <input type="file" name="Resume" class="form-control" accept="application/msword, application/vnd.ms-excel, application/vnd.ms-powerpoint,
+                                        text/plain, application/pdf" style="border:1px solid rgb(189, 199, 189);" required>
+                                        <label>Demo Video</label>
+                                        <input type="file" class="form-control" name="demovideo" accept="video/*" style="border:1px solid  rgb(189, 199, 189);" required>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <p>1. Why do you want to be a teacher for the E-Learning?<br>
+                                            <textarea name="why_teacher" class="form-control" style="border:1px solid rgb(189, 199, 189);" required></textarea> 2. What experience do you have specific to the position you are applying for and how would
+                                            you use that experience to be a success in the E-Learning?
+                                            <br>
+                                            <textarea name="experience" class="form-control" style="border:1px solid rgb(189, 199, 189);" required></textarea> 3. Describe your greatest accomplishments as an educator.</p>
+                                        <textarea name="accomplishments" class="form-control" style="border:1px solid rgb(189, 199, 189);" required></textarea>
+                                        <button type="submit" class="btn btn-success btn-lg pull-right mt-2">Send Request</button>
+                                    </div>
+                                </div>
+                            </form>
+                            {% endif %} {% if request.user.userdetail.status == 'pending' %}
+                            <p style="margin-left: 30px;">Your Request is Pending... Wait for Responce</p>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% endblock content %}

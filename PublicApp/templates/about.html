@@ -1,0 +1,92 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+<!-- start banner Area -->
+<section class="banner-area relative about-banner" id="home">
+    <div class="overlay overlay-bg"></div>
+    <div class="container">
+        <div class="row d-flex align-items-center justify-content-center">
+            <div class="about-content col-lg-12">
+                <h1 class="text-white courses">
+                    About Us
+                </h1>
+                <p class="text-white link-nav"><a href="/">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="/about"> About Us</a></p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End banner Area -->
+
+
+
+<!-- Start info Area -->
+<section class="info-area pb-120" style="padding-top:20px;">
+    <div class="container-fluid">
+        <div class="row align-items-center">
+            <div class="col-lg-6 no-padding info-area-left">
+                <img class="img-fluid" src="{% static 'PublicApp/img/pexels-mikael-blomkvist-6476267.jpg' %}" alt="">
+            </div>
+            <div class="col-lg-6 info-area-right">
+                <h1>Who we are ?</h1>
+                <p>E-learning has proved to be the best means in the corporate sector, especially when training programs are conducted by MNCs for professionals across the globe and employees are able to acquire important skills while sitting in a board
+                    room, or by having seminars, which are conducted for employees of the same or the different organizations under one roof. The schools which use E-learning technologies are a step ahead of those which still have the traditional approach
+                    towards learning.</p>
+                <br>
+                <p>
+                    It has also been found that visuals, apart from holding the attention of the student, are also retained by the brain for longer periods. Various sectors, including agriculture, medicine, education, services, business, and government setups are adapting
+                    to the concept of E-learning which helps in the progress of a nation.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End info Area -->
+
+<!-- Start course-mission Area -->
+<section class="course-mission-area pb-120">
+    <div class="container">
+        <div class="row d-flex justify-content-center">
+            <div class="menu-content pb-70 col-lg-8">
+                <div class="title text-center">
+                    <h1 class="mb-10">Goals to Achieve for the leadership</h1>
+                    <p>Who are in extremely love with eco friendly system.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 accordion-left">
+
+                <!-- accordion 2 start-->
+                <dl class="accordion">
+                    <dt>
+                                    <a href="">Success</a>
+                                </dt>
+                    <dd>
+                        Your true success in life begins only when you make the commitment to become excellent at what you do.
+                    </dd>
+                    <dt>
+                                    <a href="">Info</a>
+                                </dt>
+                    <dd>
+                        A learning system based on formalised teaching but with the help of electronic resources is known as E-learning.
+                    </dd>
+                    <dt>
+                                    <a href="">Friendly</a>
+                                </dt>
+                    <dd>
+                        E-learning has provided students with various advantages by being flexible, consistent, and the most important is it is cost-effective for students and parents. Several e-learning platforms all over the world help students to get enrolled in courses of
+                        their choice by the comfort of their homes.
+                    </dd>
+
+                </dl>
+                <!-- accordion 2 end-->
+            </div>
+            <div class="col-md-6 video-right justify-content-center align-items-center d-flex relative">
+                <div class="overlay overlay-bg"></div>
+                <a class="play-btn" href="https://www.youtube.com/watch?v=ARA0AxrnHdM"><img class="img-fluid mx-auto" src="{% static 'PublicApp/img/play.png' %}" alt=""></a>
+            </div>
+        </div>
+    </div>
+</section><br>
+<!-- End course-mission Area -->
+
+
+{% endblock content %}

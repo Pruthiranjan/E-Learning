@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge"> {% block title %} {% endblock title %}
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'AdminApp/img/favicon.png' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/normalize.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/all.min.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/fonts/flaticon.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/animate.min.css' %}">
+    <link rel="stylesheet" href="{% static 'AdminApp/css/style.css' %}">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="{% static 'AdminApp/js/modernizr-3.6.0.min.js' %}"></script>
+    <style>
+        #id_new_password1 {
+            width: 100%;
+            border: 1px solid rgb(11, 236, 30);
+        }
+        
+        #id_new_password2 {
+            width: 100%;
+            border: 1px solid rgb(11, 236, 30);
+        }
+        
+        .error {
+            color: red;
+            font-size: 9px;
+        }
+        
+        #username-error {
+            color: red;
+            font-size: 9px;
+        }
+        
+        .signupbtn2 {
+            text-decoration: none;
+        }
+        
+        .signuptp {
+            padding-top: 10px;
+        }
+        
+        @media screen and (max-width: 400px) {
+            .signupbtn2 {
+                padding-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    {% block content %} {% endblock content %}
+    <script src="{% static 'AdminApp/js/jquery-3.3.1.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/plugins.js' %}"></script>
+    <script src="{% static 'AdminApp/js/popper.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/jquery.scrollUp.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/main.js' %}"></script>
+    <script src="{% static 'AdminApp/js/jquery.validate.min.js' %}"></script>
+    <script src="{% static 'AdminApp/js/validation.js' %}"></script>
+    <script src="{% static 'AdminApp/js/additional-methods.min.js' %}"></script>
+</body>
+
+</html>

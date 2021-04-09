@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dashboard | Sign Up</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'AdminApp/img/favicon.png' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/normalize.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/main.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/bootstrap.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/all.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/fonts/flaticon.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/animate.min.css' %}">
+
+    <link rel="stylesheet" href="{% static 'AdminApp/css/style.css' %}">
+
+    <script src="{% static 'AdminApp/js/modernizr-3.6.0.min.js' %}"></script>
+</head>
+
+<body>
+
+    <!--/////////////Login Page Start///////////////-->
+    <div class="login-page-wrap" style="background-image: url('/static/AdminApp/img/figure/login-bg.jpg');">
+        <div class="login-page-content">
+            <div class="login-box" style="height: 600px;margin-top: 40px;">
+                <a href="/" style="color: red;font-weight: bold;"><i class="fas fa-home"></i> HOME</a>
+                <div class="item-logo">
+                    <img src="{% static 'AdminApp/img/favicon.png' %}" alt="logo"><b>E-LEARNING</b>
+                </div>
+                <form class="form-group">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <label for="first_name">First Name</label> {{form.first_name}}
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="last_name">Last Name</label> {{form.last_name}}
+                        </div>
+                        <div class="col-lg-4">
+                            <label for="contact">Contact</label> {{form.contact}}
+                        </div>
+                    </div>
+
+                    <div class="row pt-5">
+                        <div class="col-lg-6">
+                            <label>Date of Birth</label>
+                            <input type="date" placeholder="Enter dob" class="form-control" style="border:1px solid rgb(11, 236, 30);">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>E-Mail</label>
+                            <input type="email" placeholder="Enter email                                                    📧" class="form-control" style="border:1px solid rgb(11, 236, 30);">
+                        </div>
+                    </div>
+
+                    <div class="row pt-5">
+                        <div class="col-lg-6">
+                            <label>Password</label>
+                            <input type="text" placeholder="Enter password                                            🔒" class="form-control" style="border:1px solid rgb(11, 236, 30);">
+                        </div>
+                        <div class="col-lg-6">
+                            <label>Confirm Password</label>
+                            <input type="text" placeholder="Confirm password                                        🔒" class="form-control" style="border:1px solid rgb(11, 236, 30);">
+                        </div>
+                    </div>
+                    <div class="form-group d-flex align-items-center justify-content-between pt-5">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" id="remember-me">
+                            <label for="remember-me" class="form-check-label text-primary font-weight-bold">Remember Me</label>
+                            <a href="/login/" class="text-primary font-weight-bold" style="padding-left: 280px;">Already Have an Account</a>
+                        </div>
+
+                    </div>
+                    <div class="form-group" style="margin-bottom: 20px;">
+                        <button type="button" class="btn btn-success btn-lg btn-block" style="height: 50px; font-size: 20px;">Sign Up</button>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+    <!--///////////Login Page End////////////////-->
+    <script src="{% static 'AdminApp/js/jquery-3.3.1.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/plugins.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/popper.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/bootstrap.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/jquery.scrollUp.min.js' %}"></script>
+
+    <script src="{% static 'AdminApp/js/main.js' %}"></script>
+
+</body>
+
+</html>

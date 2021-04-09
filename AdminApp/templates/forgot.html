@@ -1,0 +1,39 @@
+{% extends 'baselogin.html' %}{% load static %} {% block title %}
+<title>Forgot Password</title>
+{% endblock title %}{% block content %}
+<!--/////////////Login Page Start///////////////-->
+<div class="login-page-wrap" style="background-image: url('/static/AdminApp/img/figure/login-bg.jpg');">
+    <div class="login-page-content">
+        <div class="login-box">
+            <div class="item-logo">
+                <a href="/"><img src="{% static 'AdminApp/img/favicon.png' %}" alt="logo"><b>E-LEARNING</b></a>
+            </div>
+
+            <h3 class="text-center text-info">Forgot Password</h3>
+            <form action="/forgotpassword/" class="login-form" method="POST">
+                {% csrf_token %} {% if message %} {{message}} {% endif %} {% if message %} {{message}} {% endif %}
+                <div class="form-group">
+                    <input type="text" name="email" value="{{email}}" class="form-control" hidden>
+                    <label>OTP</label>
+                    <input type="text" placeholder="Enter the Otp sent to your mail" name="userotp" class="form-control">
+                    <i class="far fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" placeholder="Enter the new Password" name="npassword" class="form-control">
+                    <i class="far fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <label>Confirm Password</label>
+                    <input type="text" placeholder="Confirm Password" name="cpassword" class="form-control">
+                    <i class="far fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-btn">Reset Password</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!--///////////Login Page End////////////////-->
+{% endblock content %}

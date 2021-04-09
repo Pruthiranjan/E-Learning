@@ -1,0 +1,41 @@
+{% extends 'dashboard.html' %} {% load static %}{% block title %}
+<title>User | Profile</title>
+{% endblock title %}{% block content %}
+
+<div class="dashboard-page-one">
+    <form class="form-group pt-5 " method="POST" id="userdetail" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-lg-6">
+                <label>First Name</label>
+                <input type="text" name="first_name" class="form-control" value="{{data.first_name}}" style="border:1px solid rgb(11, 236, 30);">
+            </div>
+            <div class="col-lg-6">
+                <label>Last Name</label>
+                <input type="text" name="last_name" class="form-control" value="{{data.last_name}}" style="border:1px solid rgb(11, 236, 30);">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>E-Mail</label>
+                <input type="email" class="form-control" name="email" value="{{data.username}}" style="border:1px solid rgb(11, 236, 30);" disabled>
+            </div>
+            <div class="col-lg-6">
+                <label>Contact No.</label>
+                <input type="text" class="form-control" name="contact" value="{{data1.contact}}" style="border:1px solid rgb(11, 236, 30);">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <label>Date of Birth</label>
+                <input type="date" class="form-control" name="dob" value="{{data1.dob}}" style="border:1px solid rgb(11, 236, 30);">
+            </div>
+            <div class="col-lg-6">
+                <label>Address</label>
+                <textarea name="address" class="form-control" placeholder="Please Add Your Address" style="border:1px solid rgb(11, 236, 30);">{% if data1.address %}{{data1.address}}{% else %}Please Add Address{% endif %}</textarea>
+            </div>
+        </div>
+        <div class="form-group" id="profileupdatebtn">
+            <button type="submit" class="btn btn-info btn-block" style="height: 50px; font-size: 20px;">Update</button>
+        </div>
+        {% endblock content %}

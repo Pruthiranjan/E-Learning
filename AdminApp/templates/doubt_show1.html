@@ -1,0 +1,56 @@
+{% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Student | student-course</title>
+{% endblock title %} {% block style %}
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>{% endblock style %}{% block content %}
+<!--///////////////Sidebar End///////////////-->
+<div class="dashboard-content-one">
+
+    <div class="breadcrumbs-area">
+        <h3>Student Dashboard</h3>
+        <ul>
+            <li>
+                <a href="/student_dashboard/">Home</a>
+            </li>
+            <li>Doubts Post</li>
+        </ul>
+    </div>
+    <!--///////////notifcations start////////////-->
+    <div class="col-lg-12 col-8-xxxl col-xl-12">
+        <div class="card dashboard-card-six">
+            <div class="card-body">
+                <div class="heading-layout1 mg-b-17">
+                    <div class="item-title">
+                        <h3>Doubts</h3>
+                    </div>
+                    <a href="/add_doubt/" class="btn font-weight-bold bg-pink" style="border-radius: 20px;">Add Doubt</a>
+                </div>
+                <div class="notice-box-wrap">
+                    {% for x in s %}
+                    <div class="notice-list">
+                        <div class="post-date bg-skyblue">{{x.date}}</div>
+                        <h6 class="notice-title"><a href="#">{{x.doubt}}</a></h6>
+                        <div class="entry-meta">Posted by <b>{{x.postby}}</b></div>
+                        <h4 style="text-decoration: underline;">Answers..</h4>
+                        {% if a %} {% for answer in a %} {% if x.id == answer.doubt_id %}
+                        <strong>
+                                        {{ answer.answerby }}--
+                                        {{answer.date}}
+                                    </strong>
+                        <br/> {{answer.ans}}
+                        <br/><br/> {% endif %} {% endfor %} {% else %} No Answers Yet..<a href="#">Add One</a> {% endif %}
+                        <div class="post-date bg-success font-weight-bold"><a href="/edit_doubt/{{x.id}}/">Add Answer</a></div>
+                        {% if x.user_id == request.user.id %}
+                        <div class="post-date bg-red"><a href="/delete_doubt/{{x.id}}/">Delete</a></div>
+                        {% endif %}
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endblock content %}

@@ -1,0 +1,117 @@
+#fh5co-course-categories,
+#fh5co-counter,
+#fh5co-course,
+#fh5co-register,
+#fh5co-pricing,
+#fh5co-testimonial,
+#fh5co-blog,
+#fh5co-about,
+#fh5co-staff,
+#fh5co-contact,
+#fh5co-footer {
+    padding: 7em 0;
+    clear: both;
+}
+
+@media screen and (max-width: 768px) {
+    #fh5co-course-categories,
+    #fh5co-counter,
+    #fh5co-course,
+    #fh5co-register,
+    #fh5co-pricing,
+    #fh5co-testimonial,
+    #fh5co-blog,
+    #fh5co-about,
+    #fh5co-staff,
+    #fh5co-contact,
+    #fh5co-footer {
+        padding: 3em 0;
+    }
+}
+
+.course {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -moz-flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.course .desc,
+.course .course-img {
+    width: 50%;
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .course .desc,
+    .course .course-img {
+        width: 100%;
+    }
+}
+
+.course .course-img {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-transition: 0.3s;
+    -o-transition: 0.3s;
+    transition: 0.3s;
+}
+
+@media screen and (max-width: 768px) {
+    .course .course-img {
+        height: 270px;
+    }
+}
+
+.course .desc {
+    padding: 1.7em;
+    background: #fafafa;
+}
+
+.course .desc h3 {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.course .desc h3 a {
+    color: #000;
+}
+
+.course .desc .date {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.course .desc .btn-course {
+    border: 2px solid rgba(0, 0, 0, 0.8) !important;
+    background: transparent;
+    color: rgba(0, 0, 0, 0.8) !important;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 11px 15px !important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    border-radius: 0;
+}
+
+.course .desc .btn-course:hover {
+    background: rgba(0, 0, 0, 0.8) !important;
+    color: white !important;
+}
+
+.course:hover .course-img {
+    -webkit-box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
+    -moz-box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
+    box-shadow: inset -70px 0px 77px 11px rgba(0, 0, 0, 0.74);
+}

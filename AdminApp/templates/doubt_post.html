@@ -1,0 +1,30 @@
+{% extends 'dashboard.html' %} {% load static %} {% block title %}
+<title>Student | Student Post</title>
+{% endblock title %} {% block style %}
+<style>
+    body {
+        overflow: hidden;
+    }
+</style>{% endblock style %}{% block content %}
+
+
+<!--///////////////Sidebar End///////////////-->
+
+<div class="dashboard-content-one">
+
+    <div class="breadcrumbs-area">
+        <h3>Add Doubts</h3>
+
+    </div>
+
+    <form action='/add_doubt/' method="POST" enctype="multipart/form-data">
+        {%csrf_token%}
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">DOUBT</label>
+            <textarea class="form-control border border-dark" name="doubt" style="height: 40vh;" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <input type='submit' id="doubbt_btn" class="btn btn-primary text-white" value='Send'>
+    </form>
+
+    <!--//////////////////Footer Start/////////////-->
+    {% endblock content %}

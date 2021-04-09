@@ -1,0 +1,47 @@
+{% extends 'baselogin.html' %}{% load static %} {% block title %}
+<title>Dashboard | Login</title>
+{% endblock title %}{% block content %}
+<!--/////////////Login Page Start///////////////-->
+<div class="login-page-wrap" style="background-image: url('/static/AdminApp/img/figure/login-bg.jpg');">
+    <div class="login-page-content">
+        <div class="login-box">
+            <div class="item-logo">
+                <a href="/" style="text-decoration: none;"><img src="{% static 'AdminApp/img/favicon.png' %}" alt="logo"><b>E-LEARNING</b></a>
+            </div>
+            {% if messages %} {% for message in messages %}
+            <div class="bg-{{message.tags}} text-center"><span {% if message.tags %} class="text-dark" {% endif %}>{{message}}</span>
+            </div>{% endfor %} {% endif %}
+            <form action="" class="login-form" method="POST" id="loginform">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label>E-mail</label>
+                    <input type="text" placeholder="Enter email" name="username" onfocus="this.value=''; this.style.color = 'green';" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" placeholder="Enter password" name="password" onfocus="this.value=''; this.style.color = 'green';" class="form-control">
+                </div>
+                <div class="form-group d-flex align-items-center justify-content-between">
+                    <div class="form-check">
+                        <a href="/signup/" class="text-primary">Don't have an Account</a>
+                    </div>
+                    <a href="/verifyuser/" class="forgot-btn">Forgot Password?</a>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="login-btn">Login</button>
+                </div>
+            </form>
+            <div class="login-social">
+                <p>or sign in with</p>
+                <ul>
+                    <li><a href="#" class="bg-fb"><i class="fab fa-facebook-f"></i></a></li>
+                    <li><a href="#" class="bg-twitter"><i class="fab fa-twitter"></i></a></li>
+                    <li><a href="#" class="bg-gplus"><i class="fab fa-google-plus-g"></i></a></li>
+                    <li><a href="#" class="bg-git"><i class="fab fa-github"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--///////////Login Page End////////////////-->
+{% endblock content %}

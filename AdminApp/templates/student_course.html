@@ -1,0 +1,41 @@
+{% extends 'dashboard.html' %} {% load static %} {% block link %}
+<link rel="stylesheet" href="{% static 'AdminApp/css/course.css' %}"> {% endblock link %} {% block title %}
+<title>Student | student-course</title>
+{% endblock title %} {% block content %}
+<div class="dashboard-content-one">
+    <div class="breadcrumbs-area">
+        <h3>Student Dashboard</h3>
+        <ul>
+            <li>
+                <a href="/student_dashboard/">Home</a>
+            </li>
+            <li>My Courses</li>
+        </ul>
+    </div>
+    <div class="container">
+        <div style="margin-top: 0;">
+            <div class="container">
+                <div class="row">
+                    {% if taken_course %} {% for courses in taken_course %}
+                    <div class="col-md-6 animate-box">
+                        <div class="course">
+                            <a href="#" class="course-img  border border-info rounded" style="background-image: url({{courses.course.cimage.url}});background-size: cover;">
+                            </a>
+                            <div class="desc">
+                                <h3><a href="#" verifyuser/>{{courses.course.cname}}</a>
+                                </h3>
+                                <p style="font-size: 10px;">{{courses.course.cabout}}</p>
+                                <a href="/start_course/{{courses.course_id}}" class="btn btn-primary">Start Course</a> {% if "incomplete" in courses.status %}
+                                <button disabled="disabled" class="btn btn-warning">Generate Certificate</button> {% else %} {% if courses.certificate == "False" or courses.certificate == "" %}
+                                <a href="/certificate/{{courses.id}}/{{courses.course_id}}" class="btn btn-warning">Generate Certificate</a> {% else %}
+                                <a href="{{courses.certificate.url}}" class="btn btn-warning" id="gc" download="certificate">Download Certificate</a> {% endif %}{% endif %}
+                                <br><br>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %} {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock content %}

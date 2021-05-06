@@ -78,6 +78,7 @@ def Signup(request):
             messages.success(
                 request, 'Registration Successful Goto LogIn To Continue !!')
             talk("Registration Successfully Goto LogIn To Continue")
+            return redirect("login")
     return render(request, 'signup.html')
 
 # student dashboard

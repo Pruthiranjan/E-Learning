@@ -10,6 +10,15 @@
 <div class="dashboard-content-one">
 
     <div class="breadcrumbs-area">
+        {% if request.user.userdetail.usertype == 'teacher' %}
+        <h3>Teacher Dashboard</h3>
+        <ul>
+            <li>
+                <a href="/teacher_dashboard/">Home</a>
+            </li>
+            <li>Doubts Post</li>
+        </ul>
+        {% else %}
         <h3>Student Dashboard</h3>
         <ul>
             <li>
@@ -17,7 +26,9 @@
             </li>
             <li>Doubts Post</li>
         </ul>
+        {% endif %}
     </div>
+
     <!--///////////notifcations start////////////-->
     <div class="col-lg-12 col-8-xxxl col-xl-12">
         <div class="card dashboard-card-six">
@@ -26,7 +37,8 @@
                     <div class="item-title">
                         <h3>Doubts</h3>
                     </div>
-                    <a href="/add_doubt/" class="btn font-weight-bold bg-pink" style="border-radius: 20px;">Add Doubt</a>
+                    {% if request.user.userdetail.usertype == 'student' %}
+                    <a href="/add_doubt/" class="btn font-weight-bold bg-pink" style="border-radius: 20px;">Add Doubt</a> {% endif %}
                 </div>
                 <div class="notice-box-wrap">
                     {% for x in s %}

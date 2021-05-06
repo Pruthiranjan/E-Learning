@@ -35,7 +35,7 @@
                                             <input type="text" name="ctitle" id="ctitle" class="form-control">
                                             <br>
                                             <label for="section">Section</label>
-                                            <input type="text" name="section" value="{{section.id}}" class="form-control">
+                                            <input type="text" name="section" value="{{section.id}}" class="form-control" hidden>
                                             <input type="file" name="Video" class="mt-3">
                                             <input type="submit" value="Upload" class="btn btn-success pull-right mt-3">
                                         </form>
@@ -46,7 +46,7 @@
                         <div id="collapse{{section.id}}" class="collapse show" aria-labelledby="heading{{section.id}}" data-parent="#accordionExample">
                             <div class="card-body">
                                 {% for video in cv %} {% if section.id == video.section_id %}
-                                <a href="#" class="text-dark coursetitle" data-toggle="modal" data-target="#cv{{video.id}}"><span class="text-danger">{{video.id}}. </span>{{video.ctitle}}</a><br>
+                                <a href="#" class="text-dark coursetitle" data-toggle="modal" data-target="#cv{{video.id}}"><span class="text-danger"><i class="far fa-play-circle"></i></span>&nbsp;{{video.ctitle}}</a><br>
                                 <!-- Modal -->
                                 <div class="modal fade" id="cv{{video.id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">

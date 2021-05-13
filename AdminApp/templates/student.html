@@ -22,12 +22,12 @@
                 <div class="row align-items-center">
                     <div class="col-6">
                         <div class="item-icon bg-light-green ">
-                            <i class="flaticon-classmates text-green"></i>
+                            <i class="fas fa-book text-primary"></i>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="item-content">
-                            <div class="item-title">Total Couse</div>
+                            <div class="item-title text-primary font-weight-bold">Total Couse</div>
                             <div class="item-number"><span class="counter" data-num="{{takec}}">{{takec}}</span></div>
                         </div>
                     </div>
@@ -39,12 +39,12 @@
                 <div class="row align-items-center">
                     <div class="col-6">
                         <div class="item-icon bg-light-blue">
-                            <i class="flaticon-multiple-users-silhouette text-blue"></i>
+                            <i class="fas fa-check text-success"></i>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="item-content">
-                            <div class="item-title">Completed Course</div>
+                            <div class="item-title text-success font-weight-bold">Completed</div>
                             <div class="item-number"><span class="counter" data-num="{{c_complete}}">{{c_complete}}</span></div>
                         </div>
                     </div>
@@ -56,12 +56,12 @@
                 <div class="row align-items-center">
                     <div class="col-6">
                         <div class="item-icon bg-light-red">
-                            <i class="flaticon-money text-red"></i>
+                            <i class="fas fa-spinner text-danger"></i>
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="item-content">
-                            <div class="item-title">In Progress Course</div>
+                            <div class="item-title text-danger font-weight-bold">In Progress</div>
                             <div class="item-number"><span class="counter" data-num="{{c_incomplete}}">{{c_incomplete}}</span></div>
                         </div>
                     </div>
@@ -91,7 +91,7 @@
                                 <div class="desc">
                                     <h3><a href="#">{{course.cname}}</a></h3>
                                     <p style="font-size: 10px;">{{course.cabout}}</p>
-                                    <br><br>
+                                    <p style="font-size: 16px;" class="text-dark">{{course.user.first_name}}&nbsp; {{course.user.last_name}}</p>
                                     <span><a href="/add_to_account/{{course.id}}/{{course.user_id}}" class="btn btn-primary btn-sm btn-course" data-toggle="modal" data-target="#myModal{{course.id}}">Take A Course</a></span>
                                 </div>
                             </div>

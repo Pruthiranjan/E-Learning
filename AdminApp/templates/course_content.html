@@ -16,7 +16,7 @@
                                 <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse{{section.id}}" aria-expanded="true" aria-controls="collapse{{section.id}}"><span class="text-danger font-weight-bold h4">Section</span><span class="text-dark font-weight-bold h4">-{{section.no_of_section}}</span>
                                 </button> {% if request.user.userdetail.usertype == 'teacher' %}
                                 <a href="/del_section/{{section.id}}" class="btnadddel"><i class="fas fa-trash-alt text-danger"></i></a>
-                                <a href="" data-toggle="modal" data-target="#addvideo{{section.id}}" style="margin-left: 10px;"><i class="far fa-file-video text-success"></i>
+                                <a href="" data-toggle="modal" data-target="#addvideo{{section.id}}" style="margin-left: 10px;"><i class="fas fa-upload text-success"></i>
                                 </a> {% endif %}
                             </h2>
                         </div>
@@ -67,7 +67,8 @@
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
+                    {% endfor %} {% if request.user.userdetail.usertype == 'student' %}
+                    <a href="/{{uid}}/{{cid}}" style="margin-left: 85%;">Apply Certificate</a> {% endif %}
                 </div>
             </div>
         </div>

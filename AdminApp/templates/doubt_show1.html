@@ -45,14 +45,14 @@
                     <div class="notice-list">
                         <div class="post-date bg-skyblue">{{x.date}}</div>
                         <h6 class="notice-title"><a href="#">{{x.doubt}}</a></h6>
-                        <div class="entry-meta">Posted by <b>{{x.postby}}</b></div>
+                        <p class="entry-meta ml-5">Posted by <b>{{x.postby}}</b></p>
                         <h4 style="text-decoration: underline;">Answers..</h4>
-                        {% if a %} {% for answer in a %} {% if x.id == answer.doubt_id %}
-                        <strong>
-                                        {{ answer.answerby }}--
-                                        {{answer.date}}
-                                    </strong>
-                        <br/> {{answer.ans}}
+                        {% if a %} {% for answer in a %} {% if x.id == answer.doubt_id %} {{answer.ans}}
+                        <br/>
+                        <strong class="ml-5">
+                            {{ answer.answerby }} at--
+                            {{answer.date}}
+                        </strong>
                         <br/><br/> {% endif %} {% endfor %} {% else %} No Answers Yet..<a href="#">Add One</a> {% endif %}
                         <div class="post-date bg-success font-weight-bold"><a href="/edit_doubt/{{x.id}}/">Add Answer</a></div>
                         {% if x.user_id == request.user.id %}

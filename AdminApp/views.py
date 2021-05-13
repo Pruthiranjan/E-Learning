@@ -552,6 +552,16 @@ def Add_To_Acc(request, id, tid):
         return HttpResponseRedirect('/login/')
 
 
+def Confirm_Complete(request, uid, cid):
+    if request.user.is_authenticated:
+        take_course = Take_Course.objects.get(user_id=uid, course_id=cid)
+        take_course.status = "complete"
+        take_course.save()
+        return HttpResponseRedirect('/student_course/')
+    else:
+        return HttpResponseRedirect('/login/')
+
+
 def Gen_Cert(request, id, tid):
     course = Course.objects.get(pk=tid)
     date = Take_Course.objects.get(id=id)
@@ -592,6 +602,8 @@ def Course_content(request, id):
     cv = CourseVideo.objects.filter(course_id=id)
     course = Course.objects.get(id=id)
     cs = VideoSection.objects.filter(course_id=id)
+    uid = request.user.id
+    cid = id
     if request.method == "POST":
         ctitle = request.POST["ctitle"]
         secid = request.POST["section"]
@@ -600,7 +612,7 @@ def Course_content(request, id):
         CourseVideo.objects.create(
             user=request.user, course=course, section=cv, ctitle=ctitle, cvideo=video)
         return redirect('manage_view')
-    return render(request, 'course_content.html', {'user': user, 'user1': user1, 'data1': data1, 'cv': cv, 'cs': cs})
+    return render(request, 'course_content.html', {'user': user, 'user1': user1, 'data1': data1, 'cv': cv, 'cs': cs, 'uid': uid, 'cid': cid})
 
 
 def New_section(request, id):

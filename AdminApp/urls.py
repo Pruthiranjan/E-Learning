@@ -14,6 +14,8 @@ urlpatterns = [
     path('request_view/', views.Request_View, name="request_view"),
     path('manage_view/', views.Manage_View, name="manage_view"),
     path('start_course/<int:id>/', views.Course_content, name="course_content"),
+    path('<int:uid>/<int:cid>',
+         views.Confirm_Complete, name="complete_course"),
     path('start_course/<int:id>/newsection',
          views.New_section, name="new_Section"),
     path('del_section/<int:id>', views.Del_section, name="del_Section"),
